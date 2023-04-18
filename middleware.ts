@@ -6,5 +6,6 @@ export const config = {
 }
 
 export function middleware(request: NextRequest) {
-	return NextResponse.rewrite('https://other-site.vercel.app/editor')
+	request.headers['x-vercel-protection-bypass'] = process.env.SECRET_BYPASS
+	return NextResponse.rewrite('https://other-site.vercel.app/editor', {headers})
 }
