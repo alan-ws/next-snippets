@@ -6,5 +6,5 @@ export const config = {
 }
 
 export function middleware(request: NextRequest) {
-	return NextResponse.next();
+	return NextResponse.rewrite('https://other-site.vercel.app/editor')
 }
